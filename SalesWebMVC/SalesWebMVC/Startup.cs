@@ -5,10 +5,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using SalesWebMVC.Services;
+
 using Microsoft.EntityFrameworkCore;
 using SalesWebMVC.Data;
 
@@ -42,6 +40,8 @@ namespace SalesWebMVC
 
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>(); //ajuda que criamos a regra de negocio e diminuimos o codigo do Dbset, de certo construtor, e deixando o
+                                                //mesmo mais limpo
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
