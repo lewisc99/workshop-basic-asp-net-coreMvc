@@ -1,4 +1,5 @@
-﻿using SalesWebMVC.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SalesWebMVC.Data;
 using SalesWebMVC.Models;
 
 using System.Collections.Generic;
@@ -33,7 +34,11 @@ namespace SalesWebMVC.Services
         }
         public Seller FindById(int id)
         {
-            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+            return _context.Seller.Include(obj =>obj.Department).FirstOrDefault(obj => obj.Id == id);
+
+            //method includ it's like join in database, add a foreign key to the table.
+
+
         }
 
         public void Remove(int id)
@@ -43,6 +48,6 @@ namespace SalesWebMVC.Services
             _context.SaveChanges();
         }
 
-
+        
     }
 }
