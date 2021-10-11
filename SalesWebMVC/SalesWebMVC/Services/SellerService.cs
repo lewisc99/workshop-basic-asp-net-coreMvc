@@ -25,6 +25,10 @@ namespace SalesWebMVC.Services
         //sincrona vai rodar o banco de dados e aplicação
         // vai ficar esperando terminar.
 
-
+        public void Insert(Seller obj)
+        {
+            _context.Add(obj);
+            _context.SaveChanges();
+        }
     }
 }
