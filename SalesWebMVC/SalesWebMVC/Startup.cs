@@ -40,7 +40,9 @@ namespace SalesWebMVC
 
 
             services.AddScoped<SeedingService>();
-            services.AddScoped<SellerService>(); //ajuda que criamos a regra de negocio e diminuimos o codigo do Dbset, de certo construtor, e deixando o
+            services.AddScoped<SellerService>();
+            services.AddScoped<DepartmentService>();
+                                                //ajuda que criamos a regra de negocio e diminuimos o codigo do Dbset, de certo construtor, e deixando o
                                                 //mesmo mais limpo
         }
 

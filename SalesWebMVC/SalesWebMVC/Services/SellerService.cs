@@ -1,9 +1,9 @@
 ﻿using SalesWebMVC.Data;
 using SalesWebMVC.Models;
-using System;
+
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace SalesWebMVC.Services
 {
@@ -27,6 +27,7 @@ namespace SalesWebMVC.Services
 
         public void Insert(Seller obj)
         {
+           
             _context.Add(obj);
             _context.SaveChanges();
         }
