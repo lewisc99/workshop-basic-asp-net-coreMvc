@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMVC.Services;
-
 using Microsoft.EntityFrameworkCore;
 using SalesWebMVC.Data;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using System.Collections.Generic;
 
 namespace SalesWebMVC
 {
@@ -24,6 +26,10 @@ namespace SalesWebMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+          
+
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -49,10 +55,23 @@ namespace SalesWebMVC
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,SeedingService seedingService)
 
+
             //o metodo config aceita que coloca outros parametros nele, se adicionar uma parametro Seedingservice
             //e  a classe tiver registrado no sistema de independencia automaticamente vai ser resolvido a instancia do objeto. 
                 // services.AddScoped<SeedingService>();
         {
+            var enUs = new CultureInfo("en-US");
+            var localizationOption = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(enUs),
+                SupportedCultures = new List<CultureInfo> { enUs },
+                SupportedUICultures = new List<CultureInfo> { enUs } //opções de localização
+            };
+            app.UseRequestLocalization(localizationOption); //configurado que o aplicativo
+            //vai ter o local dos USA.
+           
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
