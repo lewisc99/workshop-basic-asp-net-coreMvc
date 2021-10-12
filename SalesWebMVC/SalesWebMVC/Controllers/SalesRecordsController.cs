@@ -37,10 +37,6 @@ namespace SalesWebMVC.Controllers
             return View(result);
         }
 
-        public IActionResult GroupingSearch()
-        {
-            return View();
-        }
-
+       
     }
 }

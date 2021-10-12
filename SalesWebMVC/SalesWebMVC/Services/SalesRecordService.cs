@@ -40,5 +40,6 @@ namespace SalesWebMVC.Services
                 .OrderByDescending(x => x.Date)
                 .ToListAsync();
         }
+       
     }
 }
